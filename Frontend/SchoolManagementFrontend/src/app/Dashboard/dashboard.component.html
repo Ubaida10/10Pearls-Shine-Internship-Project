@@ -1,0 +1,58 @@
+<div class="min-h-screen bg-gradient-to-br from-blue-600 via-blue-500 to-purple-500 p-8 flex flex-col items-center">
+  <!-- Dashboard Header -->
+  <div class="text-center mb-12 w-full max-w-6xl">
+    <h1 class="text-5xl font-extrabold text-white mb-4">Your Courses</h1>
+    <p class="text-lg text-white opacity-80 mb-8">Explore, manage, and track your learning journey with ease.</p>
+    <!-- Add New Course Button -->
+    <button
+      class="bg-gradient-to-r from-teal-400 to-indigo-500 text-white px-8 py-3 rounded-full font-medium tracking-wide hover:scale-105 transition-all duration-300 mb-6"
+      (click)="enrollInNewCourse()">
+      + Add Course
+    </button>
+  </div>
+
+  <!-- Courses Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 w-full max-w-6xl">
+    <div
+      class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transform transition-all duration-300 hover:scale-105"
+      *ngFor="let course of userCourses">
+
+      <!-- Course Image -->
+      <div class="flex justify-center mb-4">
+        <img
+          src="https://via.placeholder.com/120"
+          alt="Course image"
+          class="w-24 h-24 rounded-full object-cover shadow-md" >
+      </div>
+
+      <!-- Course Title -->
+      <h2 class="text-2xl font-semibold text-gray-800 mb-2">{{ course.courseName }}</h2>
+
+      <!-- Course Description -->
+      <p class="text-sm text-gray-600 opacity-75 mb-4">{{ course.description }}</p>
+
+      <!-- View Details Button -->
+      <button
+        class="w-full bg-gradient-to-r from-teal-400 to-indigo-500 text-white py-3 rounded-lg text-sm font-medium hover:bg-gradient-to-r hover:from-teal-500 hover:to-indigo-600 transition duration-300"
+        (click)="viewCourse(course._id)">
+        View Details
+      </button>
+    </div>
+  </div>
+
+  <!-- Statistics Overview (Optional) -->
+  <div class="mt-16 w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="bg-white text-center p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:scale-105">
+      <h3 class="text-4xl font-bold text-teal-500">{{userCourses.length}}</h3>
+      <p class="text-sm text-gray-500">Active Courses</p>
+    </div>
+    <div class="bg-white text-center p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:scale-105">
+      <h3 class="text-4xl font-bold text-indigo-500">80%</h3>
+      <p class="text-sm text-gray-500">Courses Completed</p>
+    </div>
+    <div class="bg-white text-center p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:scale-105">
+      <h3 class="text-4xl font-bold text-teal-500">3</h3>
+      <p class="text-sm text-gray-500">Completed Courses</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+/* TailwindCSS styles should be imported in your build process. */
+
+/* Base styles for body */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header section styles */
+header {
+  background-color: #f8f8f8;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Header link styles */
+header a {
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Iframe styles */
+iframe {
+  flex-grow: 1;
+  width: 100%;
+  border: none;
+}

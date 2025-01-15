@@ -1,0 +1,58 @@
+<nav class="bg-gradient-to-r from-blue-600 via-blue-500 to-teal-500 p-4 border-b-2 border-white">
+  <div class="container mx-auto flex justify-between items-center">
+    <!-- Logo -->
+    <a href="#" class="text-white text-2xl font-bold tracking-wide hover:text-yellow-400 transition-colors duration-300">School Management</a>
+
+    <!-- Desktop Menu -->
+    <div class="space-x-6 hidden md:flex">
+      <a href="#features" class="text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">Features</a>
+      <a href="#about" class="text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">About</a>
+      <a href="/login" class="text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">Login</a>
+      <a href="/Dashboard" class="text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">Courses</a>
+
+      <!-- Search Icon -->
+      <a href="/search" class="text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">
+        <i class="fas fa-search w-5 h-5"></i>
+      </a>
+
+      <!-- Profile Icon -->
+      <a href="/profile" class="text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">
+        <i class="fas fa-user w-5 h-5"></i>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle Button -->
+    <div class="md:hidden">
+      <button id="menu-toggle" class="text-white focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu (hidden by default) -->
+  <div id="mobile-menu" class="hidden md:hidden mt-4">
+    <a href="#features" class="block text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">Features</a>
+    <a href="#about" class="block text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">About</a>
+    <a href="#contact" class="block text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">Contact</a>
+    <a href="/login" class="block text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">Login</a>
+    <a href="/search" class="block text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">
+      <i class="fas fa-search w-5 h-5"></i>
+    </a>
+    <a href="/profile" class="block text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">
+      <i class="fas fa-user w-5 h-5"></i>
+    </a>
+  </div>
+</nav>
+
+<script lang="ts">
+  // TypeScript Version for Mobile Menu Toggle
+  const menuToggleButton = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  // Toggle the mobile menu visibility
+  menuToggleButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>

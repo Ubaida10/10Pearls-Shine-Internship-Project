@@ -1,0 +1,62 @@
+<div class="min-h-screen bg-gradient-to-br from-blue-600 via-blue-500 to-purple-500 p-8 flex flex-col items-center">
+  <!-- Header -->
+  <div class="text-center mb-8">
+    <h2 class="text-4xl font-extrabold text-white mb-4">Available Courses</h2>
+    <p class="text-lg text-white opacity-80">Explore all the courses and enroll in your favorite ones!</p>
+  </div>
+
+  <!-- Courses Grid -->
+  <div class="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div
+      *ngFor="let course of courses"
+      class="bg-gray-900 text-gray-300 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105"
+    >
+      <!-- Course Header -->
+      <div class="flex flex-col items-center bg-gradient-to-r from-blue-700 via-blue-500 to-purple-500 p-6 rounded-t-lg shadow-md">
+        <h3 class="text-lg font-extrabold text-white mb-2">{{ course.courseName }}</h3>
+        <span
+          [ngClass]="{
+            'bg-green-100 text-green-700': course.status === 'active',
+            'bg-yellow-100 text-yellow-700': course.status === 'completed',
+            'bg-red-100 text-red-700': course.status === 'canceled'
+          }"
+          class="px-3 py-1 text-xs font-medium rounded-full"
+        >
+          {{ course.status | titlecase }}
+        </span>
+      </div>
+
+      <!-- Course Image -->
+      <div class="h-40 bg-gray-700 flex justify-center items-center">
+        <img
+          ngSrc="https://via.placeholder.com/120"
+          alt="Course image"
+          class="h-full object-cover rounded-t-lg"
+        />
+      </div>
+
+      <!-- Course Details -->
+      <div class="p-6">
+        <p class="text-sm text-gray-400 mb-4">{{ course.description }}</p>
+
+        <!-- Additional Details -->
+        <div class="text-sm text-gray-400 space-y-2 mb-4">
+          <p><span class="font-semibold text-white">Start Date:</span> {{ course.startDate | date:'mediumDate' }}</p>
+          <p><span class="font-semibold text-white">End Date:</span> {{ course.endDate | date:'mediumDate' }}</p>
+          <p><span class="font-semibold text-white">Teacher:</span> {{ course.teacher.name }}</p>
+          <p><span class="font-semibold text-white">Category:</span> {{ course.category }}</p>
+          <p><span class="font-semibold text-white">Students:</span> {{ course.students.length }}</p>
+        </div>
+
+        <!-- Action Button -->
+        <button
+          type="button"
+          class="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-3 rounded-md font-medium shadow-md hover:shadow-lg transition duration-300"
+          (click)="showDetails(course._id)"
+        >
+          View Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
