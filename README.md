@@ -57,7 +57,7 @@ To run this project locally, ensure you have the following installed:
 ### Backend
 1. Navigate to the `Backend` folder:
    ```bash
-   cd Backend
+   cd school_management_backend
    ```
 2. Install dependencies:
    ```bash
@@ -77,7 +77,7 @@ To run this project locally, ensure you have the following installed:
 ### Frontend
 1. Navigate to the `Frontend` folder:
    ```bash
-   cd Frontend
+   cd SchoolManagementFrontend
    ```
 2. Install dependencies:
    ```bash
