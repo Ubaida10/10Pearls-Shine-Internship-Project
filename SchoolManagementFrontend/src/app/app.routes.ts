@@ -20,8 +20,7 @@ const routeConfig: Routes = [
   {path: 'course-details/:id', component: CourseDetailsComponent, title: 'Course Details'},
   {path: 'courses-list', component: CoursesListComponent, title: 'Courses List'},
   {path: 'no-courses', component: NoCoursesComponent, title: 'No Courses Found'},
-  {path: 'edit-course/:id', component: EditCourseComponent, title: 'Edit'}
-  // {path: '**', component: NotFoundComponent}
+  {path: 'edit-course/:id', component: EditCourseComponent, title: 'Edit'},
 ];
 
 

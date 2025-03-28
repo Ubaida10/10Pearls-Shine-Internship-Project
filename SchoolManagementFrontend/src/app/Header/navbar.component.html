@@ -1,58 +1,93 @@
-<nav class="bg-gradient-to-r from-blue-600 via-blue-500 to-teal-500 p-4 border-b-2 border-white">
+<nav class="bg-blue-600 p-4 shadow-md">
   <div class="container mx-auto flex justify-between items-center">
     <!-- Logo -->
-    <a href="#" class="text-white text-2xl font-bold tracking-wide hover:text-yellow-400 transition-colors duration-300">School Management</a>
+    <a href="#" class="text-white text-2xl font-bold tracking-wide hover:text-gray-200 transition-colors duration-300">School Management</a>
 
     <!-- Desktop Menu -->
-    <div class="space-x-6 hidden md:flex">
-      <a href="#features" class="text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">Features</a>
-      <a href="#about" class="text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">About</a>
-      <a href="/login" class="text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">Login</a>
-      <a href="/Dashboard" class="text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">Courses</a>
+    <div class="space-x-6 hidden md:flex items-center">
+      <a href="#features" class="text-white font-semibold hover:text-gray-200 transition-colors duration-300 py-2 px-4 rounded-md">Features</a>
+      <a href="#pricing" class="text-white font-semibold hover:text-gray-200 transition-colors duration-300 py-2 px-4 rounded-md">Pricing</a>
+      <a href="#faq" class="text-white font-semibold hover:text-gray-200 transition-colors duration-300 py-2 px-4 rounded-md">FAQ</a>
+      <a href="/login" class="text-white font-semibold bg-blue-700 hover:bg-blue-800 transition-all duration-300 py-2 px-4 rounded-md">Login</a>
 
       <!-- Search Icon -->
-      <a href="/search" class="text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">
-        <i class="fas fa-search w-5 h-5"></i>
-      </a>
+      <button (click)="toggleSearchBar()" class="text-white hover:text-gray-200 transition-colors duration-300 py-2 px-2">
+        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </button>
 
       <!-- Profile Icon -->
-      <a href="/profile" class="text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">
-        <i class="fas fa-user w-5 h-5"></i>
+      <a routerLink="/profile" class="text-white hover:text-gray-200 transition-colors duration-300 py-2 px-2">
+        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+        </svg>
       </a>
     </div>
 
     <!-- Mobile Menu Toggle Button -->
     <div class="md:hidden">
-      <button id="menu-toggle" class="text-white focus:outline-none">
+      <button #menuToggle id="menu-toggle" class="text-white focus:outline-none">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
   </div>
 
+  <!-- Search Bar (Desktop) -->
+  <div *ngIf="isSearchBarVisible" class="container mx-auto mt-4">
+    <form (ngSubmit)="onSearch()" class="flex items-center justify-center">
+      <input
+        [(ngModel)]="searchQuery"
+        name="searchQuery"
+        type="text"
+        placeholder="Search..."
+        class="w-full max-w-md p-2 rounded-l-md bg-white text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <button type="submit" class="bg-blue-700 text-white p-2 rounded-r-md hover:bg-blue-800 transition duration-300">
+        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </button>
+    </form>
+  </div>
+
   <!-- Mobile Dropdown Menu (hidden by default) -->
-  <div id="mobile-menu" class="hidden md:hidden mt-4">
-    <a href="#features" class="block text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">Features</a>
-    <a href="#about" class="block text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">About</a>
-    <a href="#contact" class="block text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">Contact</a>
-    <a href="/login" class="block text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">Login</a>
-    <a href="/search" class="block text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">
-      <i class="fas fa-search w-5 h-5"></i>
-    </a>
-    <a href="/profile" class="block text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-teal-400 hover:text-white transition-all duration-300 py-2 px-4 rounded-md">
-      <i class="fas fa-user w-5 h-5"></i>
+  <div #mobileMenu id="mobile-menu" class="hidden md:hidden bg-blue-700 mt-2 rounded-md shadow-lg">
+    <a href="#features" class="block text-white font-semibold hover:bg-blue-800 transition-all duration-300 py-2 px-4">Features</a>
+    <a href="#pricing" class="block text-white font-semibold hover:bg-blue-800 transition-all duration-300 py-2 px-4">Pricing</a>
+    <a href="#faq" class="block text-white font-semibold hover:bg-blue-800 transition-all duration-300 py-2 px-4">FAQ</a>
+    <a href="/login" class="block text-white font-semibold hover:bg-blue-800 transition-all duration-300 py-2 px-4">Login</a>
+    <!-- Mobile Search Option -->
+    <button (click)="toggleSearchBar()" class="block text-white hover:bg-blue-800 transition-all duration-300 py-2 px-4 flex items-center w-full text-left">
+      <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+      Search
+    </button>
+    <!-- Mobile Search Bar -->
+    <div *ngIf="isSearchBarVisible" class="px-4 pb-4">
+      <form (ngSubmit)="onSearch()" class="flex items-center">
+        <input
+          [(ngModel)]="searchQuery"
+          name="searchQuery"
+          type="text"
+          placeholder="Search..."
+          class="w-full p-2 rounded-l-md bg-white text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button type="submit" class="bg-blue-700 text-white p-2 rounded-r-md hover:bg-blue-800 transition duration-300">
+          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
+      </form>
+    </div>
+    <a routerLink="/profile" class="block text-white hover:bg-blue-800 transition-all duration-300 py-2 px-4 flex items-center">
+      <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+      </svg>
+      Profile
     </a>
   </div>
 </nav>
-
-<script lang="ts">
-  // TypeScript Version for Mobile Menu Toggle
-  const menuToggleButton = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  // Toggle the mobile menu visibility
-  menuToggleButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-</script>
