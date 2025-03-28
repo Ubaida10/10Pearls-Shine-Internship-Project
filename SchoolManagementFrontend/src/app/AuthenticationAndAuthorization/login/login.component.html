@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-gradient-to-br from-blue-600 via-blue-500 to-purple-500 flex items-center justify-center p-6">
+<div class="min-h-screen bg-gray-100 flex items-center justify-center p-6">
   <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 space-y-8">
     <!-- Header -->
     <div class="text-center">
@@ -42,7 +42,7 @@
             formControlName="password"
             type="password"
             required
-            class="block w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-400 bg-white transition-all"
+            class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-400 bg-white transition-all"
             placeholder="••••••••"
           />
         </div>
@@ -50,35 +50,35 @@
 
       <!-- Remember Me & Forgot Password -->
       <div class="flex items-center justify-between">
-        <div class="flex items-center">
-          <input
-            id="remember-me"
-            name="remember-me"
-            type="checkbox"
-            class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-          />
-          <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me</label>
-        </div>
-        <div class="text-sm">
-          <a href="#" class="font-medium text-blue-600 hover:text-blue-500">Forgot password?</a>
-        </div>
+        <label class="flex items-center text-sm text-gray-600">
+          <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" />
+          <span class="ml-2">Remember me</span>
+        </label>
+        <a href="#" class="text-sm text-blue-600 hover:underline">Forgot password?</a>
       </div>
 
       <!-- Login Button -->
       <button
         type="submit"
-        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200"
+        class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
       >
-        Sign in
+        Sign In
       </button>
 
-      <!-- Sign Up Link -->
-      <div class="text-center">
-        <p class="text-sm text-gray-600">
-          Don't have an account?
-          <a href="/signup" class="font-medium text-blue-600 hover:text-blue-500">Sign up now</a>
-        </p>
+      <!-- Divider -->
+      <div class="relative flex py-5 items-center">
+        <div class="flex-grow border-t border-gray-300"></div>
+        <span class="flex-shrink mx-4 text-gray-400">OR</span>
+        <div class="flex-grow border-t border-gray-300"></div>
       </div>
+
+      <!-- Social Login -->
+      <button class="w-full flex items-center justify-center py-3 border border-gray-300 rounded-lg font-semibold text-gray-700 hover:bg-gray-100 transition duration-300">
+        <img src="/assets/images/google.png" class="h-5 w-5 mr-2" alt="Google Logo" /> Sign in with Google
+      </button>
     </form>
+
+    <!-- Register Link -->
+    <p class="text-center text-sm text-gray-600">Don't have an account? <a href="#" class="text-blue-600 hover:underline">Sign up</a></p>
   </div>
 </div>
