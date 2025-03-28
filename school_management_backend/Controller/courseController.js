@@ -1,3 +1,4 @@
+import { request } from 'express';
 import Course from '../Model/courseModel.js';  // Use ES module import for consistency
 
 
@@ -31,6 +32,21 @@ export const getCourseById = async (req, res) => {
             return res.status(404).json({ message: 'Course not found' });  // Handle if course is not found
         }
 
+        res.status(200).json(course);  // Respond with status 200 and the course details
+    } catch (error) {
+        // If an error occurs, respond with status 500 and the error message
+        res.status(500).json({ message: error.message });
+    }
+};
+
+export const getCourseByName = async (request, res) => {
+    try {
+        const { courseName } = request.params;  // Extract course name from request parameters
+        const course = await Course.findOne({ courseName });  // Find the course by name
+
+        if (!course) {
+            return res.status(404).json({ message: 'Course not found' });  // Handle if course is not found
+        }
         res.status(200).json(course);  // Respond with status 200 and the course details
     } catch (error) {
         // If an error occurs, respond with status 500 and the error message
